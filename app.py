@@ -43,9 +43,9 @@ def log_request():
 
 def get_db_cursor():
     db = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
+        host="healthcare.ceuamjvpii8y.us-east-1.rds.amazonaws.com",
+        user="admin",
+        password="healthcare",
         database="reactml"
     )
     return db, db.cursor()
@@ -61,7 +61,7 @@ def options_for_predict():
     return result
 
 
-with open('../server/healthbot_model2.pkl', 'rb') as file:
+with open('./healthbot_model2.pkl', 'rb') as file:
     model = pickle.load(file)
 
 @app.route('/predict', methods=['POST', 'OPTIONS'])
